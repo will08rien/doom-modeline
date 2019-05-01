@@ -65,8 +65,8 @@
 (defvar iedit-occurrences-overlays)
 (defvar mc/mode-line)
 (defvar minions-mode-line-lighter)
-(defvar mu4e-alert-mode-line)
-(defvar mu4e-alert-modeline-formatter)
+(defvar mail-alert-mode-line)
+(defvar mail-alert-modeline-formatter)
 (defvar nyan-minimum-window-width)
 (defvar objed--obj-state)
 (defvar objed--object)
@@ -149,8 +149,8 @@
 (declare-function magit-toplevel 'magit-git)
 (declare-function mc/num-cursors 'multiple-cursors-core)
 (declare-function minions-minor-modes-menu 'minions)
-(declare-function mu4e-alert-default-mode-line-formatter 'mu4e-alert)
-(declare-function mu4e-alert-enable-mode-line-display 'mu4e-alert)
+(declare-function mail-alert-default-mode-line-formatter 'mu4e-alert)
+(declare-function mail-alert-enable-mode-line-display 'mu4e-alert)
 (declare-function nyan-create 'nyan-mode)
 (declare-function org-narrow-to-block 'org)
 (declare-function org-narrow-to-element 'org)
@@ -1861,15 +1861,14 @@ mouse-1: Toggle Debug on Quit"
 
 
 ;;
-;; mu4e-alert notifications
+;; mail-alert notifications
 ;;
-
-(doom-modeline-def-segment mu4e
-  (when (and doom-modeline-mu4e
+(doom-modeline-def-segment mail
+  (when (and doom-modeline-mail
              (doom-modeline--active)
-             (bound-and-true-p mu4e-alert-mode-line))
+             (bound-and-true-p mail-alert-mode-line))
     ;; don't display if the unread mails count is zero
-    (if (> mu4e-alert-mode-line 0)
+    (if (> mail-alert-mode-line 0)
         (concat
          " "
          (propertize
@@ -1883,12 +1882,12 @@ mouse-1: Toggle Debug on Quit"
                 doom-modeline-vspc)
              (propertize "#"
                          'face '(:inherit (doom-modeline-warning doom-modeline-unread-number))))
-           (propertize (number-to-string mu4e-alert-mode-line)
+           (propertize (number-to-string mail-alert-mode-line)
                        'face '(:inherit (doom-modeline-warning doom-modeline-unread-number))))
           'mouse-face '(:box 0)
-          'help-echo (if (= mu4e-alert-mode-line 1)
+          'help-echo (if (= mail-alert-mode-line 1)
                          "You have an unread email"
-                       (format "You have %s unread emails" mu4e-alert-mode-line)))
+                       (format "You have %s unread emails" mail-alert-mode-line)))
          " "))))
 
 (defun doom-modeline-override-mu4e-alert-modeline (&rest _)

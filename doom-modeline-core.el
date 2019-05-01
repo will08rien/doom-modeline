@@ -158,8 +158,13 @@ Given ~/Projects/FOSS/emacs/lisp/comint.el
   "Whether display environment version or not.")
 (define-obsolete-variable-alias 'doom-modeline-version 'doom-modeline-env-version "1.7.4")
 
-(defvar doom-modeline-mu4e t
-  "Whether display mu4e notifications or not. Requires `mu4e-alert' package.")
+(defvar doom-modeline-mail 'mu4e
+  "Whether and how to display mail notifications (or not).
+If nil, do not display mail notifications in the modeline.
+Otherwise, should be one of 'mu4e or 'gnus.
+
+If set to mu4e, the mu4e-alert package should be available.
+If set to gnus, gnus-notify should be loaded.")
 
 (defvar doom-modeline-irc t
   "Whether display irc notifications or not. Requires `circe' package.")
@@ -234,7 +239,7 @@ Given ~/Projects/FOSS/emacs/lisp/comint.el
 
 (defface doom-modeline-unread-number
   `((t (:inherit italic)))
-  "Face for unread number in the modeline. Used by `github', `mu4e', etc.")
+  "Face for unread number in the modeline. Used by `github', `mail', etc.")
 
 (defface doom-modeline-bar '((t (:inherit highlight)))
   "The face used for the left-most bar on the mode-line of an active window.")

@@ -52,7 +52,7 @@
 ;; - An indicator for debug state
 ;; - An indicator for LSP state with lsp-mode or eglot
 ;; - An indicator for github notifications
-;; - An indicator for unread emails with mu4e-alert
+;; - An indicator for unread emails
 ;; - An indicator for irc notifications with circe
 ;; - An indicator for buffer position which is compatible with nyan-mode
 ;; - An indicator for party parrot
@@ -84,7 +84,7 @@
 
 (doom-modeline-def-modeline 'main
   '(bar workspace-name window-number modals matches buffer-info remote-host buffer-position parrot selection-info)
-  '(objed-state misc-info persp-name lsp irc mu4e github debug fancy-battery minor-modes input-method buffer-encoding major-mode process vcs checker))
+  '(objed-state misc-info persp-name lsp irc mail github debug fancy-battery minor-modes input-method buffer-encoding major-mode process vcs checker))
 
 (doom-modeline-def-modeline 'minimal
   '(bar matches " " buffer-info)
@@ -96,7 +96,7 @@
 
 (doom-modeline-def-modeline 'project
   '(bar window-number " " buffer-default-directory)
-  '(misc-info mu4e github debug fancy-battery " " major-mode process))
+  '(misc-info mail github debug fancy-battery " " major-mode process))
 
 (doom-modeline-def-modeline 'media
   '(bar window-number buffer-size buffer-info)
